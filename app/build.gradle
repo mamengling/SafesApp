@@ -1,29 +1,176 @@
 apply plugin: 'com.android.application'
-
+def getProductName() {
+    return "FirstJob"
+}
+//获取当前系统的时间
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
 android {
-    compileSdkVersion 26
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.safes.mling.safesapp"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a', 'mips', 'mips64'
+        }
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+    signingConfigs {
+        sigin_config {
+            keyAlias 'fristjob'
+            keyPassword '123456'
+            storeFile file('../androidkey/fristJob.jks')
+            storePassword '123456'
+        }
+        debug_config {
+            keyAlias 'fristjob'
+            keyPassword '123456'
+            storeFile file('../androidkey/fristJob.jks')
+            storePassword '123456'
+        }
+//        MD5: 17:30:82:01:E2:DA:1C:7B:75:A4:C4:94:5F:D1:F7:01
+//        SHA1: 3C:DF:80:52:AB:7C:F3:52:1B:DD:DB:54:7B:04:0A:A7:80:9D:D4:FB
+//        SHA256: 35:26:6B:C8:9F:9F:94:11:BD:09:AD:CC:3A:69:24:A1:C3:47:8A:A1:60:35:8C:EA:3D:92:87:84:3C:1F:84:09
+        buildTypes {
+            release {
+                debuggable false
+                jniDebuggable true
+                signingConfig signingConfigs.sigin_config
+                minifyEnabled false
+                zipAlignEnabled true
+            }
+            debug {
+                debuggable true
+                jniDebuggable true
+                signingConfig signingConfigs.debug_config
+                minifyEnabled false
+                zipAlignEnabled true
+            }
+        }
+
+        repositories {
+            flatDir {
+                dirs 'libs'
+            }
+        }
+        File propFile = file('signing.properties');
+        if (propFile.exists()) {
+            def Properties props = new Properties()
+            props.load(new FileInputStream(propFile))
+            if (props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+                    props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+                android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+                android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+                android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+                android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+            } else {
+                android.buildTypes.release.signingConfig = null
+            }
+        } else {
+            android.buildTypes.release.signingConfig = null
+        }
+    }
+
+
+    // 多渠道
+    productFlavors {
+        //可以设置不同渠道渠道号，应用名称
+        yy360 {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11111"'
+        }
+        anzhi {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11112"'
+        }
+        qq {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11113"'
+        }
+        baidu {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11114"'
+        }
+        wandoujia {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11115"'
+        }
+        oppo {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11116"'
+        }
+        sogou {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11117"'
+        }
+        wo {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11118"'
+        }
+        yingyonghui {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"11119"'
+        }
+        jifeng {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"1111110"'
+        }
+        mumayi {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"1111111"'
+        }
+        chuizi {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"1111112"'
+        }
+        nduo {
+            //            buildConfigField "String", "CHANNEL_NUMBER", '"1111113"'
+        }
+        zhougang {
+        }
+    }
+
+    // 多渠道批量替换
+    productFlavors.all { flavor ->
+        //批量修改Manifest占位符替换
+        //在Manifest使用`${UMENG_CHANNEL_VALUE}`,`LEANCLOUD_CHANNEL_VALUE`,打包时将替换成渠道名，例如UMENG_CHANNEL_VALUE="anzhi";
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, LEANCLOUD_CHANNEL_VALUE: name]
+        //        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        if (project.hasProperty('_myAPPBuildVersionName')) {
+            defaultConfig.versionName = _myAPPBuildVersionName
+        }
+    }
+    // 批量打包
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName
+                if (variant.buildType.name.equals('release')) {
+                    // myAPP_v版本号_渠道名.apk
+                    //                    fileName = "myAPP_v${variant.versionName}_${variant.productFlavors[0].name}.apk"
+                    fileName = getProductName() + "_v${defaultConfig.versionName}_${releaseTime()}_" + variant.productFlavors[0].name + '.apk'
+                } else {
+                    // myAPP_v版本号_渠道名_时间_编译类型名.apk
+                    //                    fileName = getProductName()+"_v${variant.versionName}_${variant.productFlavors[0].name}_${releaseTime()}_${variant.buildType.name}.apk"
+                    fileName = getProductName() + "_v${defaultConfig.versionName}_${releaseTime()}_" + '_debug.apk'
+                }
+                output.outputFile = new File(outputFile.parent + "/${variant.buildType.name}", fileName)
+            }
         }
     }
 }
-
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+
+    //分包机制
+    compile 'com.android.support:multidex:1.0.1'
+
+    //图片加载
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.yinglan.alphatabs:library:1.0.8'
+    testCompile 'junit:junit:4.12'
 }
