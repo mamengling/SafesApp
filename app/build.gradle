@@ -165,12 +165,12 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
-
+    compile 'com.google.code.gson:gson:2.6.2'
     //分包机制
     compile 'com.android.support:multidex:1.0.1'
-
     //图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.yinglan.alphatabs:library:1.0.8'
     testCompile 'junit:junit:4.12'
+    compile project(':libOpenUtils')
 }
