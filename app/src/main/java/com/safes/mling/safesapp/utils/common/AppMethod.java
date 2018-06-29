@@ -1,5 +1,7 @@
 package com.safes.mling.safesapp.utils.common;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -7,11 +9,13 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 
 import com.loopj.android.http.RequestParams;
+import com.safes.mling.safesapp.bean.CallBackVo;
 import com.safes.mling.safesapp.utils.common.log.LogUtil;
 
 import java.io.BufferedReader;
@@ -25,6 +29,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,9 +50,19 @@ public class AppMethod {
     public static RequestParams getMapParams(String method) {
         RequestParams mapParams = new RequestParams();
         String timestamp = AppMethod.getSecondTimestampTwo();
-        mapParams.put("sign", MD5Utils.Md5("vfbw4UdPkHfSwMVh|" + method + "|" + timestamp));
+        mapParams.put("sign", MD5Utils.Md5("SdTp2KPo|" + method + "|" + timestamp + "|" + "v1"));
         mapParams.put("timestamp", timestamp);
+        mapParams.put("version", "v1");
         return mapParams;
+    }
+
+
+    public static CallBackVo getCallBackVo() {
+        CallBackVo mCallBackVo = new CallBackVo();
+        mCallBackVo.setErrcode(404);
+        mCallBackVo.setErrmsg("服务器请求失败~");
+        mCallBackVo.setData(null);
+        return mCallBackVo;
     }
 
 
@@ -93,7 +108,8 @@ public class AppMethod {
     public static String getPhoneNumber(Context context) {
         TelephonyManager mTel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
-        String tel = mTel.getLine1Number();
+        assert mTel != null;
+        @SuppressLint("MissingPermission") String tel = mTel.getLine1Number();
         return tel;
 
     }
@@ -104,6 +120,7 @@ public class AppMethod {
      * @param context
      * @return
      */
+    @SuppressLint("MissingPermission")
     public static String getDeviceIMEI(final Context context) {
         if (TextUtils.isEmpty(SharePreferenceUtil.getString(context, UserConfig.USER_DEVICE_IMEI, ""))) {
             try {
@@ -128,6 +145,26 @@ public class AppMethod {
      */
     public static String getDeviceIMEIOnley(Context context) {
         TelephonyManager mTm = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return null;
+        }
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return null;
+        }
         LogUtil.i("USER_DEVICE_IMEI 2", mTm.getDeviceId());
         //获取用户唯一标示
         return mTm.getDeviceId();

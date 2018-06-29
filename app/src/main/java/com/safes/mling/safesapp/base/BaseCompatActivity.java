@@ -62,6 +62,7 @@ public abstract class BaseCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setStatusBar();
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
         this.mContext = this;

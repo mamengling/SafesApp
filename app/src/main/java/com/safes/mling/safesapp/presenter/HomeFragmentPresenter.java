@@ -9,6 +9,7 @@ import com.safes.mling.safesapp.base.BaseApplication;
 import com.safes.mling.safesapp.bean.CallBackVo;
 import com.safes.mling.safesapp.bean.HomeBean;
 import com.safes.mling.safesapp.iactivityview.HomeFragmentView;
+import com.safes.mling.safesapp.utils.common.AppMethod;
 import com.safes.mling.safesapp.utils.common.Constants;
 import com.safes.mling.safesapp.utils.common.HttpUtil;
 import com.safes.mling.safesapp.utils.common.log.LogUtil;
@@ -25,7 +26,7 @@ import cz.msebera.android.httpclient.Header;
  * 创建时间 ：2018/4/3 14:25
  * $DESE$
  */
-public class HomeFragmentPresenter{
+public class HomeFragmentPresenter {
     private HomeFragmentView mHomeFragmentView;
 
     public HomeFragmentPresenter(HomeFragmentView mHomeFragmentView) {
@@ -34,7 +35,7 @@ public class HomeFragmentPresenter{
 
     public void getIndexList() {
         mHomeFragmentView.showProgress();
-        HttpUtil.get(Constants.BASE_URL + Constants.BASE_URL, mHomeFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
+        HttpUtil.post(Constants.BASE_URL + Constants.HOME_API_INDEX, mHomeFragmentView.getParamenters(), new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -56,49 +57,32 @@ public class HomeFragmentPresenter{
                 JSONObject object = null;
                 try {
                     object = new JSONObject(result);
-                    if (object.getInt("rtnCode") == 200) {
+                    if (object.getInt("errcode") == 0) {
                         Gson gson = new Gson();
                         HomeBean userVo = gson.fromJson(result, HomeBean.class);
-                        if (userVo.getCode() == 200) {
-                            mHomeFragmentView.excuteSuccessCallBack(userVo);
-                        } else {
-                            CallBackVo mCallBackVo = new CallBackVo();
-                            mCallBackVo.setCode(userVo.getCode());
-                            mCallBackVo.setMessage(userVo.getMessage());
-                            mCallBackVo.setData(null);
-                            mHomeFragmentView.excuteFailedCallBack(mCallBackVo);
-                        }
-                    }else if (object.getInt("rtnCode") == 104){
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(BaseApplication.getContext());
-                        Intent intent = new Intent();
-                        intent.setAction("exitApp");
-                        intent.putExtra("goWhere", 5);
-                        lbm.sendBroadcast(intent);
-                    }else {
+                        mHomeFragmentView.excuteSuccessCallBack(userVo);
+                    } else {
                         Gson gson = new Gson();
                         CallBackVo userVo = gson.fromJson(result, CallBackVo.class);
                         CallBackVo mCallBackVo = new CallBackVo();
-                        mCallBackVo.setCode(userVo.getCode());
-                        mCallBackVo.setMessage(userVo.getMessage());
+                        mCallBackVo.setErrcode(userVo.getErrcode());
+                        mCallBackVo.setErrmsg(userVo.getErrmsg());
                         mCallBackVo.setData(null);
                         mHomeFragmentView.excuteFailedCallBack(mCallBackVo);
                     }
-                } catch (JSONException e) {
+                } catch (JSONException e){
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable
+                    error) {
                 LogUtil.i("putUserInfo", "-----------------" + statusCode + "");
                 LogUtil.i("putUserInfo", "-----------------" + error.getMessage() + "");
                 mHomeFragmentView.closeProgress();
                 JsonLog.printJson("TAG" + "[onError]", error.getMessage(), "");
-                CallBackVo mCallBackVo = new CallBackVo();
-                mCallBackVo.setCode(404);
-                mCallBackVo.setMessage("别着急哦~");
-                mCallBackVo.setData(null);
-                mHomeFragmentView.excuteFailedCallBack(mCallBackVo);
+                mHomeFragmentView.excuteFailedCallBack(AppMethod.getCallBackVo());
             }
         });
     }

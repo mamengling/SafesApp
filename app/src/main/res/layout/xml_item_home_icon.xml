@@ -2,40 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tv_zsbx"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:drawablePadding="8dp"
             android:drawableTop="@mipmap/icon_home_zsbx"
-            android:text="赠送保险"/>
+            android:gravity="center"
+            android:text="赠送保险"
+            android:textColor="@color/home_text_color"
+            android:textSize="@dimen/textsize_6" />
 
         <TextView
             android:id="@+id/tv_mxcp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:drawableTop="@mipmap/icon_home_mxcp"
-            android:text="明星产品"/>
+            android:gravity="center"
+            android:text="明星产品"
+            android:drawablePadding="8dp"
+            android:textColor="@color/home_text_color"
+            android:textSize="@dimen/textsize_6" />
 
         <TextView
             android:id="@+id/tv_jfsc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:drawablePadding="8dp"
             android:drawableTop="@mipmap/icon_home_jfsc"
-            android:text="积分商城"/>
+            android:gravity="center"
+            android:text="积分商城"
+            android:textColor="@color/home_text_color"
+            android:textSize="@dimen/textsize_6" />
 
 
         <TextView
@@ -43,9 +53,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:drawableTop="@mipmap/icon_home_bxfl"
-            android:text="保险分类"/>
+            android:gravity="center"
+            android:text="保险分类"
+            android:textColor="@color/home_text_color"
+            android:drawablePadding="8dp"
+            android:textSize="@dimen/textsize_6" />
 
 
         <TextView
@@ -53,9 +66,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
             android:drawableTop="@mipmap/icon_home_xbzs"
-            android:text="小白助手"/>
+            android:gravity="center"
+            android:text="小白助手"
+            android:drawablePadding="8dp"
+            android:textColor="@color/home_text_color"
+            android:textSize="@dimen/textsize_6" />
     </LinearLayout>
 
 </LinearLayout>

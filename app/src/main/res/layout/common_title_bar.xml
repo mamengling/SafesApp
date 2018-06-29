@@ -3,7 +3,7 @@
     android:id="@+id/line_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -86,13 +86,13 @@
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:drawableLeft="@mipmap/icon_back_new_white"
+            android:drawableLeft="@mipmap/icon_back"
             android:drawablePadding="5dp"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:minWidth="45dp"
             android:singleLine="true"
-            android:textColor="@color/white"
+            android:textColor="@color/home_text_color"
             android:visibility="visible" />
 
         <TextView
@@ -107,7 +107,7 @@
             android:lines="1"
             android:maxLength="10"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="@color/home_text_color"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -126,7 +126,7 @@
                 android:gravity="center"
                 android:paddingRight="7dp"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="@color/home_text_color"
                 android:textSize="14sp" />
 
             <TextView
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="@color/home_text_color"
                 android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
@@ -159,7 +159,7 @@
         android:gravity="center_vertical"
         android:padding="10dp"
         android:text="什么是提问？提问可以赚积分？"
-        android:textColor="@color/white"
+        android:textColor="@color/home_text_color"
         android:textSize="@dimen/textsize_6"
         android:visibility="gone"/>
 </LinearLayout>

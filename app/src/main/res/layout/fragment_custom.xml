@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_icon_top_bg">
+
+            <LinearLayout
+                android:id="@+id/top_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="免费"
+                    android:textColor="@color/custom_top_text_mf"
+                    android:textSize="@dimen/textsize_20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="定制专属保障"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_20" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/top_text"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="30dp"
+                android:background="@mipmap/custom_icon_input">
+
+                <LinearLayout
+                    android:id="@+id/line_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="230dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="您的称呼"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/textsize_7" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/x_radio_sex_bg"
+                            android:button="@null"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="3dp"
+                            android:text="男"
+                            android:textColor="@color/home_text_color"
+                            android:textSize="@dimen/textsize_7" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/x_radio_sex_bg"
+                            android:button="@null"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="3dp"
+                            android:text="女"
+                            android:textColor="@color/home_text_color"
+                            android:textSize="@dimen/textsize_7" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/line_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/line_name"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="您的手机号"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/textsize_7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/line_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@+id/line_phone"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="预约时间"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/textsize_7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@mipmap/icon_arrow_right"
+                        android:text="任意"
+                        android:textColor="@color/home_text_color" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button_commit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/line_time"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/custom_button_bg"
+                    android:text="提交预约"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/textsize_8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/button_commit"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="我们承诺：\n您的信息仅提供给分配的专属顾问，不会泄露。"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relative_chanp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_message">
+
+                <LinearLayout
+                    android:id="@+id/line_text_yuyue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="预约流程"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/line_yuyue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line_text_yuyue"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@mipmap/custom_icon_yuyue_liuc"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line_yuyue"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/custom_content_bg">
+
+                        <RelativeLayout
+                            android:id="@+id/relative_hzqm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/image_hzqm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="50dp"
+                                android:background="@mipmap/custom_icon_hzqm_logo" />
+
+                            <TextView
+                                android:id="@+id/tv_hzqm_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/image_hzqm"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/image_hzqm"
+                                android:text="合作全面"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_15" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/tv_hzqm_title"
+                                android:layout_below="@+id/tv_hzqm_title"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_toRightOf="@+id/image_hzqm"
+                                android:text="合作品牌保险公司30余家，\n货比三家，给您多样选择。"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_6" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relative_cpff"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relative_hzqm"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/image_cpff"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="50dp"
+                                android:background="@mipmap/custom_icon_cpff_logo" />
+
+                            <TextView
+                                android:id="@+id/tv_cpff_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignTop="@+id/image_cpff"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:text="产品丰富"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_15" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/tv_cpff_title"
+                                android:layout_below="@+id/tv_cpff_title"
+                                android:layout_marginTop="10dp"
+                                android:layout_toLeftOf="@+id/image_cpff"
+                                android:text="在线销售1000余款保险产品，\n满足您和家人的不同需求。"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_6" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relative_yiduiyi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relative_cpff"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/image_yiduiyi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="50dp"
+                                android:background="@mipmap/custom_icon_yiduiyi_logo" />
+
+                            <TextView
+                                android:id="@+id/tv_yiduiyi_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/image_yiduiyi"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_toRightOf="@+id/image_yiduiyi"
+                                android:text="1对1服务"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_15" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/tv_yiduiyi_title"
+                                android:layout_below="@+id/tv_yiduiyi_title"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_toRightOf="@+id/image_yiduiyi"
+                                android:text="专属顾问1对1免费定制保障方案7X24小时为您提供服务"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_6" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/relative_lpsx"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/relative_yiduiyi"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/image_lpsx"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="50dp"
+                                android:background="@mipmap/custom_icon_cpff_logo" />
+
+                            <TextView
+                                android:id="@+id/tv_lpsx_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignTop="@+id/image_lpsx"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:text="理赔省心"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_15" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignLeft="@+id/tv_lpsx_title"
+                                android:layout_below="@+id/tv_lpsx_title"
+                                android:layout_marginTop="10dp"
+                                android:layout_toLeftOf="@+id/image_lpsx"
+                                android:text="一站式在线理赔，全程免\n费带您理赔，快速高效。"
+                                android:textColor="@color/home_title_color"
+                                android:textSize="@dimen/textsize_6" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@mipmap/custom_icon_title_bg"
+                        android:scaleType="centerCrop">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="精准分析风险"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/textsize_10" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relative_chanp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="7x24小时客服服务热线：400-38880000"
+                android:textColor="@color/custom_bottom_text"
+                android:textSize="@dimen/textsize_7" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

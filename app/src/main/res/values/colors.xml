@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#80A1FE </color>
-    <color name="colorPrimaryDark">#80A1FE </color>
+    <color name="colorPrimary">#80A1FE</color>
+    <color name="colorPrimaryDark">#80A1FE</color>
     <color name="colorAccent">#80A1FE</color>
     <color name="white">#FFFFFF</color>
 
 
-
+    <!-- 文字颜色 -->
+    <color name="home_title_color">#4A4A4A </color>
+    <!-- 文字颜色 -->
+    <color name="user_icon_text_color">#444444 </color>
+    <!-- 文字颜色 -->
+    <color name="user_icon_text_content_color">#B2B2B2 </color>
+    <!-- 文字颜色 -->
+    <color name="user_logo_bg">#86C5FC </color>
+    <!-- 文字颜色 -->
+    <color name="custom_button_bg">#F5A623 </color>
+    <!-- 文字颜色 -->
+    <color name="custom_top_text_mf">#F8E71C </color>
+    <!-- 文字颜色 -->
+    <color name="custom_bottom_text">#C8DDFF </color>
     <!-- 文字颜色 -->
     <color name="home_text_color">#666666</color>
     <!-- 文字颜色 -->
@@ -15,6 +28,8 @@
     <color name="home_tab_content">#333333</color>
     <!-- 文字颜色 -->
     <color name="home_icon_banner_text">#ADC7F9</color>
+    <!-- 文字颜色 -->
+    <color name="home_text_money">#FF762C</color>
     <!-- 文字颜色 -->
     <color name="home_name">#292422</color>
     <color name="work_part_bg">#CE8237</color>
@@ -26,8 +41,8 @@
     <color name="zx_point_black_gray">#876B6B6B</color>
     <color name="base_button_selector_color">#E13319</color>
     <color name="base_button_selector_color_un">#999999</color>
-
-
+    <color name="text_button_bg"> #CE9278</color>
+    <color name="black">#000000</color>
     <integer-array name="gplus_colors">
         <item>@color/gplus_color_1</item>
         <item>@color/gplus_color_2</item>

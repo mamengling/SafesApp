@@ -146,7 +146,7 @@ public class GlideUtils {
      */
     public void LoadContextBitmap(Context context, String path, ImageView imageView, int errorid, String bitmapOrgif) {
         String url = Constants.BASE_URL + path;
-        if (!TextUtils.isEmpty(path) && path.startsWith("http://")) {
+        if (!TextUtils.isEmpty(path) && path.startsWith("https://")|| path.startsWith("http://")) {
             if (bitmapOrgif == null || bitmapOrgif.equals(LOAD_BITMAP)) {
                 if (context != null && imageView != null)
                     if (Util.isOnMainThread()) {
