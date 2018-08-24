@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res"/><source path="E:\myWork\android studio\SafesApp\libOpenUtils\build\generated\res\rs\debug"/><source path="E:\myWork\android studio\SafesApp\libOpenUtils\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="E:\myWork\android studio\SafesApp\libOpenUtils\src\debug\res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res"><file name="img1" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\img1.jpg" qualifiers="hdpi-v4" type="drawable"/><file name="img2" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\img2.jpg" qualifiers="hdpi-v4" type="drawable"/><file name="img3" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\img3.jpg" qualifiers="hdpi-v4" type="drawable"/><file name="img4" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\img4.jpg" qualifiers="hdpi-v4" type="drawable"/><file name="img5" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\img5.jpg" qualifiers="hdpi-v4" type="drawable"/><file name="point_focus" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\point_focus.png" qualifiers="hdpi-v4" type="drawable"/><file name="point_normal" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\drawable-hdpi\point_normal.png" qualifiers="hdpi-v4" type="drawable"/><file name="layout_progress_recyclerview" path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\layout\layout_progress_recyclerview.xml" qualifiers="" type="layout"/><file path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\values\attrs.xml" qualifiers=""><declare-styleable name="FlowLayout_Layout">
+        <attr name="android:layout_gravity"/>
+    </declare-styleable><declare-styleable name="FlowLayout">
+        <attr name="android:gravity"/>
+    </declare-styleable><declare-styleable name="RollViewPager">
+        <attr name="rollviewpager_hint_mode">
+            <enum name="point" value="0"/>
+            <enum name="number" value="1"/>
+        </attr>
+        <attr name="rollviewpager_hint_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr format="dimension" name="rollviewpager_hint_paddingRight"/>
+        <attr format="dimension" name="rollviewpager_hint_paddingLeft"/>
+        <attr format="dimension" name="rollviewpager_hint_paddingTop"/>
+        <attr format="dimension" name="rollviewpager_hint_paddingBottom"/>
+
+        <attr format="integer" name="rollviewpager_play_delay"/>
+        <attr format="color" name="rollviewpager_hint_color"/>
+        <attr format="integer" name="rollviewpager_hint_alpha"/>
+    </declare-styleable><declare-styleable name="EasyRecyclerView">
+        <attr format="reference" name="layout_empty"/>
+        <attr format="reference" name="layout_progress"/>
+        <attr format="reference" name="layout_error"/>
+        <attr format="boolean" name="recyclerClipToPadding"/>
+        <attr format="dimension" name="recyclerPadding"/>
+        <attr format="dimension" name="recyclerPaddingTop"/>
+        <attr format="dimension" name="recyclerPaddingBottom"/>
+        <attr format="dimension" name="recyclerPaddingLeft"/>
+        <attr format="dimension" name="recyclerPaddingRight"/>
+        <attr name="scrollbarStyle">
+            <enum name="insideOverlay" value="0x0"/>
+            <enum name="insideInset" value="0x01000000"/>
+            <enum name="outsideOverlay" value="0x02000000"/>
+            <enum name="outsideInset" value="0x03000000"/>
+        </attr>
+        <attr name="scrollbars">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="0"/>
+            <enum name="none" value="2"/>
+        </attr>
+    </declare-styleable></file><file path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\values\ids.xml" qualifiers=""><item name="rollViewpager_inner" type="id"/></file><file path="E:\myWork\android studio\SafesApp\libOpenUtils\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">送保保</string></file></source><source path="E:\myWork\android studio\SafesApp\libOpenUtils\build\generated\res\rs\debug"/><source path="E:\myWork\android studio\SafesApp\libOpenUtils\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug" generated-set="debug$Generated"><source path="E:\myWork\android studio\SafesApp\libOpenUtils\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="FlowLayout"><attr name="android:gravity"/></declare-styleable><declare-styleable name="EasyRecyclerView"><attr format="reference" name="layout_empty"/><attr format="reference" name="layout_progress"/><attr format="reference" name="layout_error"/><attr format="boolean" name="recyclerClipToPadding"/><attr format="dimension" name="recyclerPadding"/><attr format="dimension" name="recyclerPaddingTop"/><attr format="dimension" name="recyclerPaddingBottom"/><attr format="dimension" name="recyclerPaddingLeft"/><attr format="dimension" name="recyclerPaddingRight"/><attr name="scrollbarStyle">
+            <enum name="insideOverlay" value="0x0"/>
+            <enum name="insideInset" value="0x01000000"/>
+            <enum name="outsideOverlay" value="0x02000000"/>
+            <enum name="outsideInset" value="0x03000000"/>
+        </attr><attr name="scrollbars">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="0"/>
+            <enum name="none" value="2"/>
+        </attr></declare-styleable><declare-styleable name="RollViewPager"><attr name="rollviewpager_hint_mode">
+            <enum name="point" value="0"/>
+            <enum name="number" value="1"/>
+        </attr><attr name="rollviewpager_hint_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr><attr format="dimension" name="rollviewpager_hint_paddingRight"/><attr format="dimension" name="rollviewpager_hint_paddingLeft"/><attr format="dimension" name="rollviewpager_hint_paddingTop"/><attr format="dimension" name="rollviewpager_hint_paddingBottom"/><attr format="integer" name="rollviewpager_play_delay"/><attr format="color" name="rollviewpager_hint_color"/><attr format="integer" name="rollviewpager_hint_alpha"/></declare-styleable><declare-styleable name="FlowLayout_Layout"><attr name="android:layout_gravity"/></declare-styleable></configuration></mergedItems></merger>
